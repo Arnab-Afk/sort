@@ -250,8 +250,8 @@ function App() {
       <header className="py-6 px-4 sm:px-6 border-b app-header">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold app-title">Selection Sort Visualization</h1>
-            <p className="app-subtitle">A step-by-step visualization of the selection sort algorithm</p>
+            <h1 className="text-2xl sm:text-3xl font-bold app-title pl-8">Selection Sort Visualization</h1>
+            <p className="app-subtitle pl-8">A step-by-step visualization of the selection sort algorithm</p>
           </div>
           <div>
             <div
@@ -294,7 +294,7 @@ function App() {
           <div className="space-y-4">
             <div>
               <label htmlFor="customArray" className="block font-medium mb-2 input-label">Custom Array (comma-separated):</label>
-              <div className="flex">
+              <div className="flex gap-3">
                 <input
                   type="text"
                   id="customArray"
@@ -453,11 +453,11 @@ function App() {
       </div>
 
       {/* Code section */}
-      <div className="card p-6 mb-8">
+      <div className="card p-2 mb-2">
         <h2 className="text-xl font-semibold mb-4 pb-2 border-b card-heading">Algorithm Implementation</h2>
 
         <div className="mb-4">
-          <div className="flex mb-4">
+          <div className="flex mb-4 gap-3">
             <button
               className={`btn ${selectedLanguage === 'java' ? 'btn-primary' : 'btn-outline'} rounded-r-none`}
               onClick={() => setSelectedLanguage('java')}
