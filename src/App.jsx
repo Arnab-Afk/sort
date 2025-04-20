@@ -246,12 +246,12 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--background)', color: 'var(--text-primary)' }}>
-      <header className="py-4 px-4 sm:px-6 border-b" style={{ borderColor: 'var(--card-border)' }}>
-        <div className="max-w-7xl mx-auto flex justify-between items-start">
+    <div className="min-h-screen app-container">
+      <header className="py-6 px-4 sm:px-6 border-b app-header">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--primary)' }}>Selection Sort Visualization</h1>
-            <p style={{ color: 'var(--text-secondary)', marginTop: '2px' }}>A step-by-step visualization of the selection sort algorithm</p>
+            <h1 className="text-2xl sm:text-3xl font-bold app-title">Selection Sort Visualization</h1>
+            <p className="app-subtitle">A step-by-step visualization of the selection sort algorithm</p>
           </div>
           <div>
             <div
@@ -263,25 +263,19 @@ function App() {
               onKeyDown={(e) => e.key === 'Enter' && toggleTheme()}
             >
               <div className="theme-toggle-slider"></div>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="theme-toggle-icon theme-toggle-icon-moon w-4 h-4" 
-                viewBox="0 0 20 20" 
-                fill="currentColor" 
-                style={{ 
-                  fill: theme === 'dark' ? "white" : "#333"
-                }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="theme-toggle-icon theme-toggle-icon-moon w-4 h-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
               </svg>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                className="theme-toggle-icon theme-toggle-icon-sun w-4 h-4" 
-                viewBox="0 0 20 20" 
-                fill="currentColor" 
-                style={{ 
-                  fill: theme === 'dark' ? "white" : "#333"
-                }}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="theme-toggle-icon theme-toggle-icon-sun w-4 h-4"
+                viewBox="0 0 20 20"
+                fill="currentColor"
               >
                 <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
               </svg>
@@ -295,11 +289,11 @@ function App() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Input section */}
         <div className="card p-6">
-          <h2 className="text-xl font-semibold mb-4 pb-2 border-b" style={{ borderColor: 'var(--card-border)' }}>Input Options</h2>
+          <h2 className="text-xl font-semibold mb-4 pb-2 border-b card-heading">Input Options</h2>
 
           <div className="space-y-4">
             <div>
-              <label htmlFor="customArray" className="block font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>Custom Array (comma-separated):</label>
+              <label htmlFor="customArray" className="block font-medium mb-2 input-label">Custom Array (comma-separated):</label>
               <div className="flex">
                 <input
                   type="text"
@@ -361,7 +355,7 @@ function App() {
 
         {/* Stats and Controls */}
         <div className="card p-6">
-          <h2 className="text-xl font-semibold mb-4 pb-2 border-b" style={{ borderColor: 'var(--card-border)' }}>Statistics & Controls</h2>
+          <h2 className="text-xl font-semibold mb-4 pb-2 border-b card-heading">Statistics & Controls</h2>
 
           <div className="grid grid-cols-2 gap-4 mb-6">
             <div className="stat-card">
@@ -383,9 +377,9 @@ function App() {
           </div>
 
           <div>
-            <label htmlFor="speed" className="block font-medium mb-2" style={{ color: 'var(--text-secondary)' }}>Animation Speed:</label>
+            <label htmlFor="speed" className="block font-medium mb-2 input-label">Animation Speed:</label>
             <div className="flex items-center">
-              <span className="text-sm mr-2" style={{ color: 'var(--text-muted)' }}>Fast</span>
+              <span className="text-sm mr-2 text-muted">Fast</span>
               <input
                 type="range"
                 id="speed"
@@ -394,68 +388,63 @@ function App() {
                 step="50"
                 value={1050 - speed}
                 onChange={(e) => setSpeed(1050 - parseInt(e.target.value))}
-                className="flex-1 h-2 rounded-lg appearance-none cursor-pointer"
-                style={{ backgroundColor: 'var(--card-border)' }}
+                className="flex-1 range-slider"
               />
-              <span className="text-sm ml-2" style={{ color: 'var(--text-muted)' }}>Slow</span>
+              <span className="text-sm ml-2 text-muted">Slow</span>
             </div>
           </div>
         </div>
 
         {/* Current step display */}
         <div className="card p-4 col-span-1 lg:col-span-2">
-          <p className="font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>Current Step:</p>
-          <p className="font-mono">{currentStep || 'Ready to sort'}</p>
+          <p className="font-medium mb-1 text-secondary">Current Step:</p>
+          <p className="font-mono current-step">{currentStep || 'Ready to sort'}</p>
         </div>
 
         {/* Color Legend */}
         <div className="flex flex-wrap gap-4 col-span-1 lg:col-span-2 mb-4">
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded mr-2" style={{ backgroundColor: 'var(--primary)' }}></div>
-            <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Unsorted</span>
+            <div className="w-4 h-4 rounded mr-2 color-box color-box-primary"></div>
+            <span className="text-sm text-secondary">Unsorted</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded mr-2" style={{ backgroundColor: 'var(--warning)' }}></div>
-            <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Current Element</span>
+            <div className="w-4 h-4 rounded mr-2 color-box color-box-warning"></div>
+            <span className="text-sm text-secondary">Current Element</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded mr-2" style={{ backgroundColor: 'var(--danger)' }}></div>
-            <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Current Minimum</span>
+            <div className="w-4 h-4 rounded mr-2 color-box color-box-danger"></div>
+            <span className="text-sm text-secondary">Current Minimum</span>
           </div>
           <div className="flex items-center">
-            <div className="w-4 h-4 rounded mr-2" style={{ backgroundColor: 'var(--success)' }}></div>
-            <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Sorted</span>
+            <div className="w-4 h-4 rounded mr-2 color-box color-box-success"></div>
+            <span className="text-sm text-secondary">Sorted</span>
           </div>
         </div>
       </div>
 
       {/* Visualization */}
       <div className="card p-6 mb-8">
-        <h2 className="text-xl font-semibold mb-6 pb-2 border-b" style={{ borderColor: 'var(--card-border)' }}>Visualization</h2>
+        <h2 className="text-xl font-semibold mb-6 pb-2 border-b card-heading">Visualization</h2>
 
-        <div className="flex items-end justify-center h-64 gap-2 overflow-x-auto py-4 px-2">
+        <div className="flex items-end justify-center h-72 gap-3 overflow-x-auto py-8 px-12 mx-auto" style={{ width: '90%', maxWidth: '1000px' }}>
           {array.map((value, idx) => (
             <div
               key={idx}
-              className={`array-bar min-w-10 w-full max-w-16 flex flex-col items-center rounded-t
-                hover:scale-105 group relative
-                ${
-                  idx === currentIndex ? 'current' : ''
-                }`}
-              style={{
-                height: `${Math.min(value * 2, 220)}px`,
-                backgroundColor: idx === currentIndex ? 'var(--warning)' :
-                                 idx === minIndex ? 'var(--danger)' :
-                                 sortedIndices.includes(idx) ? 'var(--success)' : 'var(--primary)',
-                boxShadow: idx === currentIndex || idx === minIndex || sortedIndices.includes(idx) ?
-                          '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)' : 'none'
-              }}
+              className="group relative hover:scale-105 mx-1.5 flex flex-col items-center min-w-[50px]"
             >
-              <div className="h-full w-full"></div>
-              <div className="font-medium py-1 text-center w-full" style={{ color: 'white' }}>{value}</div>
+              <div
+                className="array-bar rounded-t"
+                style={{
+                  height: `${Math.max(Math.min(value * 2, 220), 30)}px`
+                }}
+                data-state={idx === currentIndex ? 'current' :
+                           idx === minIndex ? 'min' :
+                           sortedIndices.includes(idx) ? 'sorted' : 'unsorted'}
+              >
+              </div>
+              <div className="array-bar-value">{value}</div>
               {/* Add tooltip */}
-              <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                   style={{ backgroundColor: 'var(--card)', color: 'var(--text-primary)', border: '1px solid var(--card-border)' }}>
+              <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-200 array-bar-tooltip">
                 Value: {value}
               </div>
             </div>
@@ -465,7 +454,7 @@ function App() {
 
       {/* Code section */}
       <div className="card p-6 mb-8">
-        <h2 className="text-xl font-semibold mb-4 pb-2 border-b" style={{ borderColor: 'var(--card-border)' }}>Algorithm Implementation</h2>
+        <h2 className="text-xl font-semibold mb-4 pb-2 border-b card-heading">Algorithm Implementation</h2>
 
         <div className="mb-4">
           <div className="flex mb-4">
@@ -487,11 +476,10 @@ function App() {
             <pre className="p-4 rounded overflow-x-auto text-sm font-mono">
               <button
                 onClick={() => navigator.clipboard.writeText(codeSnippets[selectedLanguage].join('\n'))}
-                className="absolute top-2 right-2 p-2 rounded hover:bg-opacity-10 transition-colors"
-                style={{ backgroundColor: 'var(--card-border)' }}
+                className="absolute top-2 right-2 p-2 rounded hover:bg-opacity-10 transition-colors code-copy-btn"
                 aria-label="Copy code"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" style={{ color: 'var(--text-secondary)' }}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 code-copy-icon" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
                   <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
                 </svg>
@@ -505,7 +493,7 @@ function App() {
                       'highlighted' : ''
                     }`}
                   >
-                    <span className="mr-4 select-none" style={{ color: 'var(--text-muted)' }}>{String(index + 1).padStart(2, '0')}</span>
+                    <span className="mr-4 select-none code-line-number">{String(index + 1).padStart(2, '0')}</span>
                     {line}
                   </div>
                 ))}
@@ -517,25 +505,25 @@ function App() {
 
       {/* Algorithm Description */}
       <div className="card p-6 mb-8">
-        <h2 className="text-xl font-semibold mb-4 pb-2 border-b" style={{ borderColor: 'var(--card-border)' }}>How Selection Sort Works</h2>
+        <h2 className="text-xl font-semibold mb-4 pb-2 border-b card-heading">How Selection Sort Works</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <ol className="list-decimal pl-5 space-y-3" style={{ color: 'var(--text-secondary)' }}>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Find the minimum:</span> Search for the smallest element in the unsorted portion of the array.</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Swap:</span> Swap it with the element at the beginning of the unsorted portion.</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Boundary shift:</span> Move the boundary between sorted and unsorted parts one element to the right.</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Repeat:</span> Continue this process until the entire array is sorted.</li>
+            <ol className="list-decimal pl-5 space-y-3 text-secondary">
+              <li><span className="text-primary font-medium">Find the minimum:</span> Search for the smallest element in the unsorted portion of the array.</li>
+              <li><span className="text-primary font-medium">Swap:</span> Swap it with the element at the beginning of the unsorted portion.</li>
+              <li><span className="text-primary font-medium">Boundary shift:</span> Move the boundary between sorted and unsorted parts one element to the right.</li>
+              <li><span className="text-primary font-medium">Repeat:</span> Continue this process until the entire array is sorted.</li>
             </ol>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>Performance</h3>
-            <ul className="space-y-2" style={{ color: 'var(--text-secondary)' }}>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Time Complexity:</span> O(n²) - where n is the size of the array</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Space Complexity:</span> O(1) - selection sort is an in-place algorithm</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Best Case:</span> O(n²) - same as average and worst case</li>
-              <li><span style={{ color: 'var(--text-primary)', fontWeight: 500 }}>Stability:</span> Not stable - relative order of equal elements may change</li>
+            <h3 className="font-semibold mb-2 text-primary">Performance</h3>
+            <ul className="space-y-2 text-secondary">
+              <li><span className="text-primary font-medium">Time Complexity:</span> O(n²) - where n is the size of the array</li>
+              <li><span className="text-primary font-medium">Space Complexity:</span> O(1) - selection sort is an in-place algorithm</li>
+              <li><span className="text-primary font-medium">Best Case:</span> O(n²) - same as average and worst case</li>
+              <li><span className="text-primary font-medium">Stability:</span> Not stable - relative order of equal elements may change</li>
             </ul>
           </div>
         </div>
@@ -544,11 +532,11 @@ function App() {
       {/* Credits Section */}
       <div className="card p-6 mb-8 credits-section">
         <h2 className="text-2xl font-bold gradient-text">Selection Sort Visualization</h2>
-        <p style={{ color: 'var(--text-secondary)', marginTop: '2px', marginBottom: '24px' }}>A step-by-step visualization of the selection sort algorithm</p>
+        <p className="text-secondary credits-subtitle">A step-by-step visualization of the selection sort algorithm</p>
 
-        <div className="rounded-lg p-4 mb-6" style={{ backgroundColor: 'rgba(var(--primary-rgb), 0.05)' }}>
-          <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--primary)' }}>Credits</h3>
-          <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>This interactive visualization was created as an educational tool to help understand the selection sort algorithm and its implementation.</p>
+        <div className="rounded-lg p-4 mb-6 credits-container">
+          <h3 className="text-lg font-semibold mb-4 credits-heading">Credits</h3>
+          <p className="mb-6 text-secondary">This interactive visualization was created as an educational tool to help understand the selection sort algorithm and its implementation.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="credits-item">
@@ -603,7 +591,7 @@ function App() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p style={{ color: 'var(--text-secondary)' }}>Made with ❤️ by  Arnab , Arijeet & Aadya</p>
+            <p className="text-secondary">Made with ❤️ by  Arnab , Arijeet & Aadya</p>
           </div>
           <div className="flex items-center gap-4">
             <a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank" rel="noopener noreferrer" className="btn btn-primary flex items-center">
@@ -620,7 +608,7 @@ function App() {
       <div className="card p-6 mb-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-4 w-full md:w-auto">
-            <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%)', minWidth: '4rem' }}>
+            <div className="w-16 h-16 rounded-full flex-shrink-0 flex items-center justify-center connect-icon">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
               </svg>
@@ -629,7 +617,7 @@ function App() {
               <h3 className="text-xl font-bold gradient-text">
                 Connect With Us
               </h3>
-              <p style={{ color: 'var(--text-secondary)' }}>
+              <p className="text-secondary">
                 Follow our work and contribute to the project
               </p>
             </div>
@@ -665,15 +653,15 @@ function App() {
 
       </main>
 
-      <footer className="py-6 border-t" style={{ borderColor: 'var(--card-border)' }}>
+      <footer className="py-6 border-t app-footer">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-2">
-            <span style={{ color: 'var(--text-secondary)' }}>Built with:</span>
-            <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--primary)' }}>React</a>
-            <span style={{ color: 'var(--text-muted)' }}>•</span>
-            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:underline" style={{ color: 'var(--primary)' }}>Tailwind CSS</a>
+            <span className="text-secondary">Built with:</span>
+            <a href="https://react.dev" target="_blank" rel="noopener noreferrer" className="hover:underline footer-link">React</a>
+            <span className="text-muted">•</span>
+            <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" className="hover:underline footer-link">Tailwind CSS</a>
           </div>
-          <p style={{ color: 'var(--text-muted)' }}>Version 1.0.0 | © {new Date().getFullYear()} Selection Sort Visualization</p>
+          <p className="text-muted">Version 1.0.0 | © {new Date().getFullYear()} Selection Sort Visualization</p>
         </div>
       </footer>
     </div>
