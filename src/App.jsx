@@ -246,27 +246,28 @@ function App() {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--background)', color: 'var(--text-primary)' }}>
-      <header className="py-6 px-4 sm:px-6 border-b" style={{ borderColor: 'var(--card-border)' }}>
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <h1 className="text-3xl sm:text-4xl font-bold gradient-text">Selection Sort Visualization</h1>
+      <header className="py-4 px-4 sm:px-6 border-b" style={{ borderColor: 'var(--card-border)' }}>
+        <div className="max-w-7xl mx-auto flex justify-between items-start">
+          <div>
+            <h1 className="text-2xl sm:text-3xl font-bold" style={{ color: 'var(--primary)' }}>Selection Sort Visualization</h1>
+            <p style={{ color: 'var(--text-secondary)', marginTop: '2px' }}>A step-by-step visualization of the selection sort algorithm</p>
           </div>
-          <div className="flex items-center gap-4">
+          <div>
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full flex items-center gap-2"
-              style={{ backgroundColor: 'var(--card)', borderColor: 'var(--card-border)', border: '1px solid var(--card-border)' }}
+              style={{ backgroundColor: 'transparent' }}
               aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {theme === 'dark' ? (
                 <>
-                  <SunIcon className="w-5 h-5" style={{ color: 'var(--warning)' }} />
-                  <span className="text-sm hidden sm:inline" style={{ color: 'var(--text-secondary)' }}>Light Mode</span>
+                  <MoonIcon className="w-5 h-5" style={{ color: 'var(--text-secondary)' }} />
+                  <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Dark Mode</span>
                 </>
               ) : (
                 <>
-                  <MoonIcon className="w-5 h-5" style={{ color: 'var(--primary)' }} />
-                  <span className="text-sm hidden sm:inline" style={{ color: 'var(--text-secondary)' }}>Dark Mode</span>
+                  <SunIcon className="w-5 h-5" style={{ color: 'var(--text-secondary)' }} />
+                  <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>Light Mode</span>
                 </>
               )}
             </button>
@@ -275,7 +276,6 @@ function App() {
       </header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-        <p className="text-center mb-8" style={{ color: 'var(--text-secondary)' }}>A step-by-step visualization of the selection sort algorithm</p>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
         {/* Input section */}
@@ -528,8 +528,8 @@ function App() {
 
       {/* Credits Section */}
       <div className="card p-6 mb-8 credits-section">
-        <h2 className="text-2xl font-bold mb-4 text-center gradient-text">Selection Sort Visualization</h2>
-        <p className="mb-6 text-center" style={{ color: 'var(--text-secondary)' }}>A step-by-step visualization of the selection sort algorithm</p>
+        <h2 className="text-2xl font-bold gradient-text">Selection Sort Visualization</h2>
+        <p style={{ color: 'var(--text-secondary)', marginTop: '2px', marginBottom: '24px' }}>A step-by-step visualization of the selection sort algorithm</p>
 
         <div className="rounded-lg p-4 mb-6" style={{ backgroundColor: 'rgba(var(--primary-rgb), 0.05)' }}>
           <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--primary)' }}>Credits</h3>
