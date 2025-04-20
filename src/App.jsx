@@ -588,7 +588,7 @@ function App() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
-            <p style={{ color: 'var(--text-secondary)' }}>Made with ❤️ by Your Name</p>
+            <p style={{ color: 'var(--text-secondary)' }}>Made with ❤️ by  Arnab , Arijeet & Aadya</p>
           </div>
           <div className="flex items-center gap-4">
             <a href="https://en.wikipedia.org/wiki/Selection_sort" target="_blank" rel="noopener noreferrer" className="btn btn-primary flex items-center">
@@ -622,7 +622,7 @@ function App() {
 
           <div className="flex gap-4">
             <a
-              href="https://github.com/yourusername/selection-sort-visualizer"
+              href="https://github.com/arnab-afk/sort"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-outline flex items-center gap-2"
@@ -634,7 +634,7 @@ function App() {
             </a>
 
             <a
-              href="https://twitter.com/yourusername"
+              href="https://x.com/bhowmik_arnab07"
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-primary flex items-center gap-2"
